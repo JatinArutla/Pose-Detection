@@ -20,9 +20,11 @@
     "expo-file-system": "^14.0.0",
     "expo-gl": "~11.3.0",
     "expo-gl-cpp": "~11.3.0",
+    "expo-screen-orientation": "^4.2.0",
     "react": "17.0.2",
     "react-native": "0.68.2",
-    "react-native-fs": "^2.20.0"
+    "react-native-fs": "^2.20.0",
+    "react-native-svg": "^12.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.17.10",
