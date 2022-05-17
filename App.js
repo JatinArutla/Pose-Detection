@@ -19,19 +19,16 @@ const permissionCheck = async () => {
 }
 const checkTensorFlow = async () => {
     try {
-        // tf.env().set('WEBGL_PACK_DEPTHWISECONV', false)
+        tf.env().set('WEBGL_PACK_DEPTHWISECONV', false)
         await tf.ready()
-        // tf.getBackend()
+        tf.getBackend()
         // const movenetModelConfig: posedetection.MoveNetModelConfig = {
         //   modelType: posedetection.movenet.modelType.SINGLEPOSE_LIGHTNING,
         //   enableSmoothing: true,
         // };
-        // const model = await posedetection.createDetector(
-        //   posedetection.SupportedModels.MoveNet
-        // );
-        // const net = await posenet.load()
-        // console.log(net)
-        // setTensor(true)
+        const model = await posedetection.createDetector(
+          posedetection.SupportedModels.MoveNet
+        )
         console.log('TF Ready')
     } catch (error) {
         console.log(error)
