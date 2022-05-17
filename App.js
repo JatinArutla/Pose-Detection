@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { Camera } from 'expo-camera';
 import * as tf from '@tensorflow/tfjs';
 import * as posedetection from '@tensorflow-models/pose-detection';
-import { cameraWithTensors } from '@tensorflow/tfjs-react-native';
+import { fetch, cameraWithTensors } from '@tensorflow/tfjs-react-native';
 
 export default function App() {
   const [hasPermission, setHasPermission] = useState(null);
@@ -19,16 +19,16 @@ const permissionCheck = async () => {
 }
 const checkTensorFlow = async () => {
     try {
-        tf.env().set('WEBGL_PACK_DEPTHWISECONV', false);
+        // tf.env().set('WEBGL_PACK_DEPTHWISECONV', false)
         await tf.ready()
-        tf.getBackend()
+        // tf.getBackend()
         // const movenetModelConfig: posedetection.MoveNetModelConfig = {
         //   modelType: posedetection.movenet.modelType.SINGLEPOSE_LIGHTNING,
         //   enableSmoothing: true,
         // };
-        const model = await posedetection.createDetector(
-          posedetection.SupportedModels.MoveNet
-        );
+        // const model = await posedetection.createDetector(
+        //   posedetection.SupportedModels.MoveNet
+        // );
         // const net = await posenet.load()
         // console.log(net)
         // setTensor(true)
