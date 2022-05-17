@@ -20,10 +20,16 @@
     "expo-file-system": "^14.0.0",
     "expo-gl": "~11.3.0",
     "expo-gl-cpp": "~11.3.0",
+    "expo-image-manipulator": "~10.3.1",
     "expo-screen-orientation": "^4.2.0",
+    "expo-splash-screen": "~0.15.1",
+    "expo-updates": "~0.13.1",
     "react": "17.0.2",
     "react-native": "0.68.2",
     "react-native-fs": "^2.20.0",
+    "react-native-gesture-handler": "^2.4.2",
+    "react-native-reanimated": "^2.8.0",
+    "react-native-screens": "^3.13.1",
     "react-native-svg": "^12.3.0"
   },
   "devDependencies": {
