@@ -236,9 +236,7 @@ export default function App() {
     return <Text>No access to camera</Text>;
   }
   return (
-      <View  style={
-        isPortrait() ? styles.containerPortrait : styles.containerLandscape
-      }>
+      <View style={styles.container}>
         <TensorCamera
             ref={cameraRef}
             style={styles.camera}
