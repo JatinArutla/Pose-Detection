@@ -208,32 +208,34 @@ export default function App() {
   const getTextureRotationAngleInDegrees = () => {
       // On Android, the camera texture will rotate behind the scene as the phone
       // changes orientation, so we don't need to rotate it in TensorCamera.
-      if (IS_ANDROID) {
-          return 0;
-      }
+      // if (IS_ANDROID) {
+      //   console.log('android')
+      //   return 0;
+      // }
 
-      // For iOS, the camera texture won't rotate automatically. Calculate the
-      // rotation angles here which will be passed to TensorCamera to rotate it
-      // internally.
-      switch (orientation) {
-          // Not supported on iOS as of 11/2021, but add it here just in case.
-          case ScreenOrientation.Orientation.PORTRAIT_DOWN:
-              return 180;
-          case ScreenOrientation.Orientation.LANDSCAPE_LEFT:
-              return cameraType === Camera.Constants.Type.front ? 270 : 90;
-          case ScreenOrientation.Orientation.LANDSCAPE_RIGHT:
-              return cameraType === Camera.Constants.Type.front ? 90 : 270;
-          default:
-              return 0;
-      }
+      // // For iOS, the camera texture won't rotate automatically. Calculate the
+      // // rotation angles here which will be passed to TensorCamera to rotate it
+      // // internally.
+      // switch (orientation) {
+      //     // Not supported on iOS as of 11/2021, but add it here just in case.
+      //     case ScreenOrientation.Orientation.PORTRAIT_DOWN:
+      //         return 180;
+      //     case ScreenOrientation.Orientation.LANDSCAPE_LEFT:
+      //         return cameraType === Camera.Constants.Type.front ? 270 : 90;
+      //     case ScreenOrientation.Orientation.LANDSCAPE_RIGHT:
+      //         return cameraType === Camera.Constants.Type.front ? 90 : 270;
+      //     default:
+      //         return 0;
+      // }
+      return 0;
   };
 
-  if (hasPermission === null) {
-    return <View />;
-  }
-  if (hasPermission === false) {
-    return <Text>No access to camera</Text>;
-  }
+  // if (hasPermission === null) {
+  //   return <View />;
+  // }
+  // if (hasPermission === false) {
+  //   return <Text>No access to camera</Text>;
+  // }
   return (
       <View style={isPortrait() ? styles.containerPortrait : styles.containerLandscape}>
         <TensorCamera
@@ -242,10 +244,10 @@ export default function App() {
             type={cameraType}
             onReady={handleCameraStream}
             // tensor related props
-            resizeWidth={getOutputTensorWidth}
+            resizeWidth={4}
             resizeHeight={getOutputTensorHeight}
             resizeDepth={3}
-            rotation={getTextureRotationAngleInDegrees}
+            rotation={0}
         />
         {renderPose()}
         {renderFps()}
