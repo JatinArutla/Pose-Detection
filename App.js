@@ -44,6 +44,7 @@ export default function App() {
       });
       
       await Camera.requestCameraPermissionsAsync();
+      tf.env().set('WEBGL_PACK_DEPTHWISECONV', false);
       await tf.ready();
 
       // Load movenet model.
@@ -86,8 +87,15 @@ export default function App() {
 
   const handleCameraStream = async (images, updatePreview, gl) => {
     const loop = async () => {
-
+        // var gl = ExpoWebGLRenderingContext;
+        console.log(gl)
         // Get the tensor and run pose detection.
+        // var GL = ExpoWebGLRenderingContext;
+        // var texture = gl.createTexture();
+        // var frameBuffer = gl.createFramebuffer();
+        // gl.bindTexture(GL.TEXTURE_2D, texture);
+        // gl.bindFramebuffer(GL.FRAMEBUFFER, frameBuffer);
+
         const imageTensor = images.next().value;
 
         const startTs = Date.now();
@@ -241,6 +249,7 @@ export default function App() {
         <TensorCamera
             ref={cameraRef}
             style={styles.camera}
+            autorender={AUTO_RENDER}
             type={cameraType}
             onReady={handleCameraStream}
             // tensor related props
